@@ -21,7 +21,37 @@
     <svg class="hd-track" viewBox="0 0 800 300" fill="none">
       <path d="M-50,200 C150,200 200,80 400,80 C600,80 650,220 850,200" stroke="url(#trackGrad)" stroke-width="2" stroke-dasharray="8 6" opacity="0.25"/>
       <path d="M-50,200 C150,200 200,80 400,80 C600,80 650,220 850,200" stroke="url(#trackGrad)" stroke-width="6" stroke-dasharray="2 12" opacity="0.08"/>
-      <!-- 小列车 logo -->
+      <!-- 车站节点（沿轨道精确分布） -->
+      <g font-size="11" fill="var(--text-3)" text-anchor="middle">
+        <!-- 上海南 (贝塞尔 t≈0.12) -->
+        <rect x="26" y="187" width="44" height="22" rx="11" fill="rgba(255,255,255,0.7)" stroke="rgba(0,0,0,0.04)"/>
+        <text x="48" y="202">上海南</text>
+        <!-- 莘庄 (t≈0.25) -->
+        <rect x="100" y="154" width="32" height="22" rx="11" fill="rgba(255,255,255,0.7)" stroke="rgba(0,0,0,0.04)"/>
+        <text x="116" y="169">莘庄</text>
+        <!-- 春申 (t≈0.38) -->
+        <rect x="176" y="111" width="32" height="22" rx="11" fill="rgba(255,255,255,0.7)" stroke="rgba(0,0,0,0.04)"/>
+        <text x="192" y="126">春申</text>
+        <!-- 新桥 (t≈0.50) -->
+        <rect x="264" y="78" width="32" height="22" rx="11" fill="rgba(255,255,255,0.7)" stroke="rgba(0,0,0,0.04)"/>
+        <text x="280" y="93">新桥</text>
+        <!-- 车墩 (t≈0.62) -->
+        <rect x="352" y="69" width="32" height="22" rx="11" fill="rgba(255,255,255,0.7)" stroke="rgba(0,0,0,0.04)"/>
+        <text x="368" y="84">车墩</text>
+        <!-- 叶榭 (t≈0.75) -->
+        <rect x="440" y="92" width="32" height="22" rx="11" fill="rgba(255,255,255,0.7)" stroke="rgba(0,0,0,0.04)"/>
+        <text x="456" y="107">叶榭</text>
+        <!-- 亭林 (t≈0.88 第二段) -->
+        <rect x="530" y="132" width="32" height="22" rx="11" fill="rgba(255,255,255,0.7)" stroke="rgba(0,0,0,0.04)"/>
+        <text x="546" y="147">亭林</text>
+        <!-- 金山园区 (≈x:80%) -->
+        <rect x="618" y="172" width="56" height="22" rx="11" fill="rgba(255,255,255,0.7)" stroke="rgba(0,0,0,0.04)"/>
+        <text x="646" y="187">金山园区</text>
+        <!-- 金山卫 (≈x:92%) -->
+        <rect x="714" y="187" width="44" height="22" rx="11" fill="rgba(255,255,255,0.7)" stroke="rgba(0,0,0,0.04)"/>
+        <text x="736" y="202">金山卫</text>
+      </g>
+      <!-- 小列车 logo（在车站之上） -->
       <image class="hd-train" href="assets/logo.svg" x="-16" y="-16" width="32" height="32" opacity="0.5"/>
       <defs>
         <linearGradient id="trackGrad" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -31,12 +61,6 @@
         </linearGradient>
       </defs>
     </svg>
-    <!-- 车站节点 -->
-    <div class="hd-station" style="--x:8%;--y:62%;">上海南</div>
-    <div class="hd-station" style="--x:28%;--y:48%;">莘庄</div>
-    <div class="hd-station" style="--x:48%;--y:38%;">新桥</div>
-    <div class="hd-station" style="--x:68%;--y:52%;">亭林</div>
-    <div class="hd-station" style="--x:88%;--y:62%;">金山卫</div>
     <!-- 几何漂浮 -->
     <div class="hd-shape shape-ring" style="--x:6%;--y:30%;--size:180px;--dur:18s;--delay:0s;"></div>
     <div class="hd-shape shape-ring" style="--x:92%;--y:22%;--size:140px;--dur:22s;--delay:-5s;"></div>
@@ -575,7 +599,7 @@
       </div>
     </div>
     <div class="footer-copy">
-      <span>© 2026 金山铁路时刻表 · 数据仅供参考，以车站公告和 12306 官网为准</span>
+      <span>© 2026 金山铁路时刻表 · 数据仅供参考，以车站公告和 金山铁路 官网微信公众号为准</span>
       <span class="footer-copy-links">
         <a href="privacy.html">隐私政策</a>
         <a href="disclaimer.html">免责声明</a>
