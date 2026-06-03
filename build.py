@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""构建脚本：压缩 HTML/CSS/JS 到 docs/ 目录，用于 GitHub Pages 部署。"""
+"""构建脚本：压缩 HTML/CSS/JS 到 dist/ 目录。"""
 import re, os, shutil
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SRC = ROOT
-OUT = os.path.join(ROOT, 'docs')
+OUT = os.path.join(ROOT, 'dist')
 
 def minify_html(text):
     # 移除 HTML 注释（保留条件注释）

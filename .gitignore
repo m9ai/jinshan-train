@@ -7,3 +7,7 @@
 
 # Node (if any later)
 node_modules/
+
+# Build output
+dist/
+docs/
