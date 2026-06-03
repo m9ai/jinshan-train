@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>小型宣传图块 440×280</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      display: flex; gap: 40px; padding: 40px;
+      background: #f0f0f0; font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+    .canvas {
+      width: 440px; height: 280px;
+      background: linear-gradient(135deg, #00b894 0%, #0ea5e9 100%);
+      border-radius: 0;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .canvas::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 60L60 0H30L0 30z' fill='rgba(255,255,255,0.03)'/%3E%3C/svg%3E");
+      opacity: 0.5;
+    }
+    .logo-area {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 16px;
+      z-index: 1;
+    }
+    .logo-area img { width: 36px; height: 36px; filter: brightness(0) invert(1); }
+    .logo-area span { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; }
+    .tagline {
+      font-size: 13px;
+      opacity: 0.9;
+      margin-bottom: 20px;
+      z-index: 1;
+    }
+    .features {
+      display: flex; gap: 8px;
+      z-index: 1;
+    }
+    .features span {
+      padding: 4px 10px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 500;
+    }
+    .badge {
+      position: absolute; top: 14px; right: 14px;
+      padding: 3px 8px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 6px;
+      font-size: 10px;
+      font-weight: 600;
+      z-index: 1;
+    }
+    .train-icon {
+      position: absolute; bottom: -10px; right: 20px;
+      font-size: 80px;
+      opacity: 0.08;
+      z-index: 0;
+    }
+    .hint {
+      position: fixed; bottom: 20px; left: 20px;
+      font-size: 14px; color: #666;
+    }
+    .hint code { background: #e8e8e8; padding: 2px 6px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <div class="canvas" id="small">
+    <div class="badge">Chrome / Edge</div>
+    <div class="logo-area">
+      <img src="../assets/logo.svg" alt="logo">
+      <span>金山铁路时刻表</span>
+    </div>
+    <div class="tagline">一键查询 · 9站覆盖 · 14天预排期</div>
+    <div class="features">
+      <span>智能查询</span>
+      <span>班次收藏</span>
+      <span>票价参考</span>
+    </div>
+    <div class="train-icon">🚆</div>
+  </div>
+
+  <div class="hint">
+    请按 <code>Cmd+Shift+4</code>（Mac）或 <code>Win+Shift+S</code>（Windows）精确框选 440×280 区域截图。<br>
+    保存为 <strong>JPEG 或 24 位 PNG（无 alpha 透明层）</strong>。
+  </div>
+</body>
+</html>

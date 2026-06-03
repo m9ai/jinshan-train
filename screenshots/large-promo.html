@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>顶部宣传图块 1400×560</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      display: flex; gap: 40px; padding: 40px;
+      background: #f0f0f0; font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+    .canvas {
+      width: 1400px; height: 560px;
+      background: linear-gradient(135deg, #00b894 0%, #0ea5e9 100%);
+      border-radius: 0;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      padding: 0 100px;
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .canvas::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 60L60 0H30L0 30z' fill='rgba(255,255,255,0.03)'/%3E%3C/svg%3E");
+      opacity: 0.5;
+    }
+    .left {
+      flex: 1;
+      z-index: 1;
+      padding-right: 60px;
+    }
+    .left .logo-area {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 24px;
+    }
+    .left .logo-area img { width: 44px; height: 44px; filter: brightness(0) invert(1); }
+    .left .logo-area span { font-size: 36px; font-weight: 800; letter-spacing: -1px; }
+    .left h2 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      opacity: 0.95;
+    }
+    .left p {
+      font-size: 16px;
+      line-height: 1.8;
+      opacity: 0.85;
+      max-width: 520px;
+      margin-bottom: 28px;
+    }
+    .left .features {
+      display: flex; gap: 12px; flex-wrap: wrap;
+    }
+    .left .features span {
+      padding: 6px 16px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 24px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+    .right {
+      width: 480px;
+      z-index: 1;
+      flex-shrink: 0;
+    }
+    .mockup {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      overflow: hidden;
+      color: #333;
+    }
+    .mockup-bar {
+      display: flex; align-items: center; gap: 8px;
+      padding: 10px 16px;
+      background: #f8f9fa;
+      border-bottom: 1px solid #eee;
+    }
+    .mockup-bar i {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: #ddd;
+    }
+    .mockup-bar span { font-size: 12px; color: #999; margin-left: 4px; }
+    .mockup-body { padding: 20px; display: flex; flex-direction: column; gap: 12px; }
+    .mockup-row { display: flex; align-items: center; gap: 10px; }
+    .mockup-row .st {
+      flex: 1; text-align: center; padding: 10px;
+      background: #f8f9fa; border-radius: 8px;
+      font-size: 14px; font-weight: 600;
+      border: 1px solid #eee;
+    }
+    .mockup-row .st.on { border-color: #00b894; color: #00b894; background: rgba(0,184,148,0.05); }
+    .mockup-row .swap { font-size: 18px; color: #00b894; }
+    .mockup-dates { display: flex; gap: 6px; }
+    .mockup-dates span {
+      padding: 5px 12px; border-radius: 8px;
+      background: #f8f9fa; font-size: 11px; color: #999;
+    }
+    .mockup-dates span.on { background: #00b894; color: #fff; font-weight: 600; }
+    .mockup-filters { display: flex; gap: 6px; }
+    .mockup-filters span {
+      padding: 3px 10px; border-radius: 6px;
+      border: 1px solid #eee; font-size: 11px; color: #999;
+    }
+    .mockup-filters span.on { border-color: #00b894; color: #00b894; background: rgba(0,184,148,0.05); }
+    .mockup-btn {
+      text-align: center; padding: 12px;
+      background: linear-gradient(135deg, #00b894, #0ea5e9);
+      color: #fff; border-radius: 8px;
+      font-weight: 700; font-size: 15px;
+    }
+    .mockup-results { display: flex; flex-direction: column; gap: 6px; }
+    .mockup-results div {
+      display: flex; align-items: center; gap: 8px;
+      padding: 8px 10px; background: #f8f9fa;
+      border-radius: 6px; font-size: 12px;
+    }
+    .mockup-results b { color: #333; min-width: 42px; }
+    .mockup-results em { font-style: normal; padding: 1px 6px; border-radius: 4px; font-size: 10px; font-weight: 600; }
+    .mockup-results .dir { background: rgba(0,184,148,0.1); color: #00b894; }
+    .mockup-results .exp { background: rgba(14,165,233,0.1); color: #0ea5e9; }
+    .mockup-results span { flex: 1; color: #666; }
+    .mockup-results small { color: #999; }
+    .train-deco {
+      position: absolute; bottom: -30px; left: 60px;
+      font-size: 200px; opacity: 0.06; z-index: 0;
+    }
+    .hint {
+      position: fixed; bottom: 20px; left: 20px;
+      font-size: 14px; color: #666;
+    }
+    .hint code { background: #e8e8e8; padding: 2px 6px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <div class="canvas" id="large">
+    <div class="train-deco">🚆</div>
+    <div class="left">
+      <div class="logo-area">
+        <img src="../assets/logo.svg" alt="logo">
+        <span>金山铁路时刻表</span>
+      </div>
+      <h2>专为金山铁路通勤族打造的查询工具</h2>
+      <p>覆盖上海南至金山卫全线 9 座站点，点击浏览器图标即可秒速查询班次、票价与站点信息。14 天预排期自动识别平日/节假日方案，收藏常用车次让通勤更高效。</p>
+      <div class="features">
+        <span>智能班次查询</span>
+        <span>14 天预排期</span>
+        <span>班次收藏</span>
+        <span>站点详情</span>
+        <span>票价参考</span>
+        <span>深色模式</span>
+      </div>
+    </div>
+    <div class="right">
+      <div class="mockup">
+        <div class="mockup-bar">
+          <i></i><i></i><i></i>
+          <span>金山铁路时刻表</span>
+        </div>
+        <div class="mockup-body">
+          <div class="mockup-row">
+            <div class="st">金山卫</div>
+            <span class="swap">⇄</span>
+            <div class="st on">上海南</div>
+          </div>
+          <div class="mockup-dates">
+            <span class="on">今天 06.03</span>
+            <span>明天 06.04</span>
+            <span>周五 06.05</span>
+          </div>
+          <div class="mockup-filters">
+            <span>直达</span>
+            <span class="on">大站停</span>
+            <span class="on">站站停</span>
+          </div>
+          <div class="mockup-btn">查 询</div>
+          <div class="mockup-results">
+            <div><b>S1601</b><em class="dir">直达</em><span>06:00 → 06:32</span><small>32分</small></div>
+            <div><b>S1003</b><em class="exp">大站停</em><span>06:28 → 07:08</span><small>40分</small></div>
+            <div><b>S1603</b><em class="dir">直达</em><span>07:06 → 07:38</span><small>32分</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hint">
+    请按 <code>Cmd+Shift+4</code>（Mac）或 <code>Win+Shift+S</code>（Windows）精确框选 1400×560 区域截图。<br>
+    保存为 <strong>JPEG 或 24 位 PNG（无 alpha 透明层）</strong>。
+  </div>
+</body>
+</html>

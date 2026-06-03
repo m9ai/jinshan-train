@@ -47,7 +47,7 @@ def process():
     os.makedirs(OUT, exist_ok=True)
 
     # HTML 文件
-    for fname in ['index.html', 'privacy.html', 'disclaimer.html']:
+    for fname in ['index.html', 'privacy.html', 'disclaimer.html', 'support.html']:
         src_path = os.path.join(SRC, fname)
         with open(src_path, 'r', encoding='utf-8') as f:
             raw = f.read()
