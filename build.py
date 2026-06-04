@@ -80,6 +80,11 @@ def process():
     if os.path.exists(cname):
         shutil.copy2(cname, OUT)
 
+    # 复制 sitemap.xml
+    sitemap = os.path.join(SRC, 'sitemap.xml')
+    if os.path.exists(sitemap):
+        shutil.copy2(sitemap, OUT)
+
     # 统计
     for fname in os.listdir(OUT):
         if fname == 'assets':

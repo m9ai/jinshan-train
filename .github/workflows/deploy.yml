@@ -31,3 +31,8 @@ jobs:
           path: dist
       - id: deploy
         uses: actions/deploy-pages@v4
+      - name: Notify Search Engines
+        run: |
+          SITEMAP="https://jinshan.m9ai.work/sitemap.xml"
+          curl -s -o /dev/null -w "Google: %{http_code}\n" "https://www.google.com/ping?sitemap=${SITEMAP}"
+          curl -s -o /dev/null -w "Bing:   %{http_code}\n" "https://www.bing.com/ping?sitemap=${SITEMAP}"
